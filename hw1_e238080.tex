@@ -1,0 +1,292 @@
+\documentclass[12pt,a4paper, margin=1in]{article}
+\usepackage{fullpage}
+\usepackage{amsfonts, amsmath, pifont}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{tkz-euclide}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{url}
+\usepackage{hyperref}
+
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={210mm,297mm},
+ left=10mm,
+ right=10mm,
+ top=5mm,
+ bottom=10mm,
+ }
+ \author{
+  ÖZTÜRK, Muhammed Tayyip\\
+  \texttt{e238080@metu.edu.tr}
+}
+\title{CSEC 507 - Applied Cryptology \\
+20221\\
+Homework 1 Solutions}
+\begin{document}
+\maketitle
+
+\noindent\rule{19cm}{1.2pt}
+
+\begin{enumerate}
+% Write your solutions in the following items.
+
+    \item 
+    \textbf{Caesar's Cipher}\\
+    Source code for observing all possibilities of encoding is placed in \textbf{caesarCipher.py} file in \textbf{src} folder.
+        \begin{enumerate}
+            \item 
+            \begin{enumerate}
+                \item 
+                BXADQRDBTQHSX
+                \item 
+                AWZCPQCASPGRW
+                \item 
+                ZVYBOPBZROFQV
+                \item 
+                DZCFSTFDVSJUZ
+            \end{enumerate}
+            \item 
+            According to the encoding section above, k denotes the number of right shifts needed to decode the cipher texts:
+            \begin{enumerate}
+                \item 
+                Plaintext: APPLIEDCRYPTOLOGY, k=13
+                \item
+                Plaintext: CAESARCIPHER, k=24
+            \end{enumerate}
+        \end{enumerate}
+        
+        
+    \item
+    \textbf{XOR Operation}
+        \begin{enumerate}
+            \item 
+            \begin{enumerate}
+                \item 
+                EEEEEEEE
+                \item 
+                33333333
+                \item 
+                A2C07A
+                \item 
+                11111111
+                \item 
+                EEEEEEEE
+            \end{enumerate}
+        \end{enumerate}
+        
+    \newpage
+    \item Frequency Analysis
+        \begin{enumerate}
+            \item 
+            Frequency analysis has been done by running a Python script. Source file and outputs are attached. Moreover, ngrams of both text, where n $\in \mathbb{Z^+}$ and $2\leq n \leq 4$, are also in the folder named \textit{engciphertext\_ngrams, turciphertext\_ngrams} folders respectively under the \textit{output} folder. Those outputs are obtained by running the shell command \textbf{python3 src/frequencyAnalysis.py} inside the HW1 directory.\\
+            While analyzing cipher texts:\\ \url{https://www3.nd.edu/~busiforc/handouts/cryptography/Letter\%20Frequencies.html} is utilized to compare the analysis we have with for English Cipher Text,\\
+            \href{https://www.researchgate.net/publication/262407127_Attacking_Turkish_texts_encrypted_by_homophonic_cipher}{(Serengil and Akin, Attacking Turkish texts encrypted by homophonic cipher)} for Turkish Cipher Text.\\
+            
+            Table 1 and Table 2 are the frequency analysis results for English Cipher Text and Turkish Cipher Text respectively:\\
+            \begin{table}[!h]
+            \centering
+                \begin{tabular}{||c c c||} 
+                 \hline
+                 Letter & Count & Ratio \\ [0.5ex] 
+                 \hline\hline
+                 n & 11.86\% & 315 \\ 
+                 \hline
+                 c & 7.38\% & 250 \\
+                 \hline
+                 y & 7.38\% & 196 \\
+                 \hline
+                 o & 7.27\% & 193 \\
+                 \hline
+                 z & 7.23\% & 192 \\ 
+                 \hline
+                 h & 6.82\% & 181 \\
+                 \hline
+                 e & 6.67\% & 177 \\
+                 \hline
+                 b & 6.29\% & 167 \\
+                 \hline
+                 i & 5.39\% & 143 \\
+                 \hline
+                 d & 4.18\% & 111 \\
+                 \hline
+                 x & 4.14\% & 110 \\
+                 \hline
+                 t & 4.03\% & 107 \\
+                 \hline
+                 v & 3.54\% & 94 \\
+                 \hline
+                 r & 3.13\% & 83 \\
+                 \hline
+                 s & 2.79\% & 74 \\
+                 \hline
+                 p & 2.18\% & 58 \\
+                 \hline
+                 k & 2.0\% & 53 \\
+                 \hline
+                 l & 1.85\% & 49 \\
+                 \hline
+                 a & 0.98\% & 26 \\
+                 \hline
+                 j & 0.83\% & 22 \\
+                 \hline
+                 u & 0.72\% & 19 \\
+                 \hline
+                 f & 0.68\% & 18 \\
+                 \hline
+                 q & 0.49\% & 13 \\
+                 \hline
+                 g & 0.15\% & 4 \\
+                 \hline
+                 m & 0.0\% & 0 \\
+                 \hline
+                 w & 0.0\% & 0 \\
+                 \hline
+                 Total & \textasciitilde100.0\% & 2655 \\
+                 \hline
+                 
+                \end{tabular}
+                \\
+                \caption{Letters and corresponding counts and frequency of existence for English Cipher Text}
+            \end{table}
+            \newpage
+            
+            \begin{table}[!h]
+            \centering
+                \begin{tabular}{||c c c||} 
+                 \hline
+                 Letter & Count & Ratio \\ [0.5ex] 
+                 \hline\hline
+                 e & 12.57\% & 391 \\ 
+                 \hline
+                 m & 8.45\% & 263 \\
+                 \hline
+                 ç & 8.33\% & 259 \\
+                 \hline
+                 g & 7.91\% & 245 \\
+                 \hline
+                 b & 7.2\% & 224 \\ 
+                 \hline
+                 ö & 5.88\% & 183 \\
+                 \hline
+                 c & 5.18\% & 161 \\
+                 \hline
+                 l & 4.79\% & 149 \\
+                 \hline
+                 y & 4.28\% & 133 \\
+                 \hline
+                 f & 4.18\% & 130 \\
+                 \hline
+                 v & 3.89\% & 121 \\
+                 \hline
+                 t & 3.54\% & 110 \\
+                 \hline
+                 j & 2.7\% & 84 \\
+                 \hline
+                 d & 2.6\% & 81 \\
+                 \hline
+                 s & 2.44\% & 76 \\
+                 \hline
+                 k & 2.09\% & 65 \\
+                 \hline
+                 ş & 1.83\% & 57 \\
+                 \hline
+                 a & 1.54\% & 48 \\
+                 \hline
+                 z & 1.45\% & 45 \\
+                 \hline
+                 ğ & 1.38\% & 43 \\
+                 \hline
+                 r & 1.32\% & 41 \\
+                 \hline
+                 ı & 1.25\% & 39 \\
+                 \hline
+                 h & 1.19\% & 37 \\
+                 \hline
+                 n & 0.96\% & 30 \\
+                 \hline
+                 o & 0.9\% & 28 \\
+                 \hline
+                 u & 0.87\% & 27 \\
+                 \hline
+                 p & 0.74\% & 23 \\
+                 \hline
+                 ü & 0.42\% & 13 \\
+                 \hline
+                 i & 0.13\% & 4 \\
+                 \hline
+                 Total & \textasciitilde100.0\% & 3111 \\
+                 \hline
+                 
+                \end{tabular}
+                \\
+                \caption{Letters and corresponding counts and frequency of existence for Turkish Cipher Text}
+            \end{table}
+            \newpage
+
+            
+            \item 
+            Firstly, I started by examining the numbers and symbols. I recognized that plaintext is something about A5/1 algorithm. I looked for resembling articles and tried to place corresponding letters in the article, starting from conjunctions and word pairs inside parenthesis. When I stuck to continue, started looking at the most frequent trigrams in Turkish Language from \href{https://www.researchgate.net/publication/221581391_On_the_Cryptographic_Patterns_and_Frequencies_in_Turkish_Language}{On the Cryptographic Patterns and Frequencies in Turkish Language (Dalkilic, Mehmet \& Dalkılıç, Gökhan. (2002))}. With the help of the paper, started with the most used trigram "LAR". Letter by letter, by replacing cipher keys with a letter which would not disrupt the meaning of the possible plaintext, a meaningful plaintext is obtained. It is also attached to the submission with a name \textbf{turplaintext.txt} in the \textbf{output} folder.\\
+            \begin{table}[!h]
+                \centering
+                \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+                \hline
+                 \tiny Alphabet &  \tiny A & \tiny B & \tiny C & \tiny Ç & \tiny D & \tiny E & \tiny F & \tiny G & \tiny Ğ & \tiny H & \tiny I & \tiny İ & \tiny J & \tiny K & \tiny L & \tiny M & \tiny N & \tiny O & \tiny Ö & \tiny P \tiny & \tiny R & \tiny S & \tiny Ş & \tiny T & \tiny U & \tiny Ü & \tiny V & \tiny Y & \tiny Z  \\
+                 \hline
+                 \tiny Key & \tiny E & \tiny S & \tiny A & \tiny I & \tiny T & \tiny M & \tiny N & \tiny R & \tiny U & \tiny O & \tiny L & \tiny B & \tiny İ & \tiny C & \tiny Ç & \tiny F & \tiny Ö & \tiny D & \tiny Ü & \tiny Ğ & \tiny G & \tiny J & \tiny Z & \tiny Y & \tiny V & \tiny Ş & \tiny P & \tiny K & \tiny H \\
+                 \hline
+                \end{tabular}
+                \caption{Corresponding Ciphertext Alphabet for Turkish Alphabet}
+                \label{tab:turcipher}
+            \end{table}
+            
+            \item
+            As well as it has been done in the decryption of Turkish cipher text, replaceLetter method has been used to replace each letter and observe if anything meaningful appears. However, this is not done randomly. ngrams for n $\in$ {2,3,4} are produced from the ciphertext. Starting from ngrams where n=4 at first, frequency analysis has been observed. There was a trigram pattern also exists in various tetragrams which is "zxv". Besides this, letters which are the same letter and consecutive to each other is queried and their frequency has been obtained by getDoubles() function. These ratios are also used to derive tetragrams to corresponding plaintexts by observing the English tetragram ratios from \url{https://www3.nd.edu/~busiforc/handouts/cryptography/Letter\%20Frequencies.html}. Word pairs in parenthesis are also ease the way predict some unknown cipher keys, as their word structure resembles each other.
+            \begin{table}[!h]
+                \centering
+                \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+                \hline
+                 \tiny Alphabet &  \tiny A & \tiny B & \tiny C & \tiny D & \tiny E & \tiny F & \tiny G & \tiny H & \tiny I & \tiny J & \tiny K & \tiny L & \tiny M & \tiny N & \tiny O & \tiny P \tiny & \tiny Q & \tiny R & \tiny S & \tiny T & \tiny U & \tiny V & \tiny W & \tiny X & \tiny Y & \tiny Z  \\
+                 \hline
+                 \tiny Key & \tiny E & \tiny A & \tiny I & \tiny R & \tiny N & \tiny L & \tiny K & \tiny D  & \tiny O & \tiny M & \tiny U & \tiny T & \tiny S & \tiny B & \tiny Y & \tiny V & \tiny G & \tiny Z & \tiny H & \tiny C & \tiny P & \tiny F & \tiny J & \tiny Q & \tiny X & \tiny W \\
+                 \hline
+                \end{tabular}
+                \caption{Corresponding Ciphertext Alphabet for English Alphabet}
+                \label{tab:engcipher}
+            \end{table}
+
+            \item
+            The frequency analysis made in the first part does not completely matches with the plaintext corresponding. This result may be affected by miscellaneous factors:
+            \begin{enumerate}
+                \item 
+                Since hose both plaintext has a genre, a specific theme, some keywords are repeated.\\
+                \item
+                Even though they would not have any specific genre, their length are not adequate to have a homogeneous distribution for letters similar to the research results. Thus, some letters are more probable to be encountered.
+                \item
+                Even usage of a conjunction instead of its counterpart, some letters can be skewed, may affect the ratio of each letter in the text significantly.
+                \item
+                The ratios we have utilized for the original English and Turkish alphabets may not be suitable for referencing, since they may not be adequate as well depending on the homogeneity and length of the texts ratios were derived.
+                \item
+                Counting may be erroneous in the first part. Ratios may not be calculated properly.
+            \end{enumerate}
+        \end{enumerate}
+
+\end{enumerate}
+
+\newpage
+\textbf{References}
+\begin{enumerate}
+    \item 
+    \url{https://www3.nd.edu/~busiforc/handouts/cryptography/Letter\%20Frequencies.html}
+    \item
+    Serengil, S. I., \& Akin, M. (n.d.). Attacking Turkish texts encrypted by homophonic cipher.\\ Retrieved November 30, 2022, from \url{https://www.researchgate.net/profile/Sefik-Serengil/publication/262407127_Attacking_Turkish_texts_encrypted_by_homophonic_cipher/links/5667429408aea62726ee72fe/Attacking-Turkish-texts-encrypted-by-homophonic-cipher.pdf}
+    \item
+    Dalkilic, Mehmet \& Dalkılıç, Gökhan. (2002). On the Cryptographic Patterns and Frequencies in Turkish Language. 144-153. 10.1007/3-540-36077-8\_14. From \url{https://www.researchgate.net/publication/221581391_On_the_Cryptographic_Patterns_and_Frequencies_in_Turkish_Language}
+\end{enumerate}
+
+\end{document}
+

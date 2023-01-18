@@ -1,0 +1,13 @@
+tt 19
+hh 10
+ss 9
+cc 5
+rr 4
+
+
+ 4
+nn 3
+zz 2
+ll 1
+ii 1
+vv 1
